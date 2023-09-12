@@ -58,7 +58,7 @@ app.post("/api/users", bp.urlencoded({ extended: false }), (req, res) => {
 
 app.get("/api/users", (req, res)=>{
     user.find({}).exec().then((data)=>{
-        items = []
+        var items = []
 
         data.forEach(item=>{
             items.push({
@@ -120,7 +120,7 @@ app.get("/api/users/:_id/logs", (req, res)=>{
         }
 
         exercise.find(reqObj, null, options).exec().then(exercises=>{
-            exerObjs = [];
+            var exerObjs = [];
             // console.log(exercises);
 
             exercises.forEach((exer)=>{
@@ -135,7 +135,7 @@ app.get("/api/users/:_id/logs", (req, res)=>{
                 username: user_data.username,
                 count: exercises.length,
                 _id: req.params._id,
-                logs: exerObjs
+                log: exerObjs
             })
         });
     });
